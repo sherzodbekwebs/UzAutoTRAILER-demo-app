@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Search, MapPin, ChevronDown, Menu, X } from 'lucide-react';
+import light from '/public/light.png';
 
 const Navbar = ({ lang, setLang, setCurrentPage, currentPage }) => {
     // Mobil menyu holati
@@ -92,7 +93,7 @@ const Navbar = ({ lang, setLang, setCurrentPage, currentPage }) => {
                 <div className="flex items-center">
                     <img
                         onClick={() => { setCurrentPage('about'); setIsMenuOpen(false); }}
-                        src="/public/light.png"
+                        src={light}
                         alt="UzAuto Trailer"
                         className="h-10 md:h-14 w-auto object-contain cursor-pointer"
                     />

@@ -44,7 +44,7 @@ const Footer = ({ lang, setCurrentPage }) => {
                             <img
                                 src={light}
                                 alt="UzAuto Trailer"
-                                className="h-10 w-20"  /* Logo h-16 dan h-10 ga tushirildi */
+                                className="h-10 w-15"  /* Logo h-16 dan h-10 ga tushirildi */
                             />
                             <p className="text-blue-100/70 text-[13px] leading-relaxed text-justify max-w-md">
                                 {t.desc}
