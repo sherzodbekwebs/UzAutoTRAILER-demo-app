@@ -1,6 +1,6 @@
 import React from 'react';
 import { Send, Instagram, Facebook, Youtube, Phone } from 'lucide-react';
-import light from '../../assets/light.png';
+import light from '/public/light.png';
 
 const Footer = ({ lang, setCurrentPage }) => {
     const t = {
@@ -31,25 +31,25 @@ const Footer = ({ lang, setCurrentPage }) => {
     return (
         <footer className="relative bg-[#003875] text-white font-sans overflow-hidden">
             {/* Fon naqshi */}
-            <div className="absolute inset-0 opacity-5 pointer-events-none" 
-                 style={{ backgroundImage: `url('https://www.transparenttextures.com/patterns/carbon-fibre.png')` }}>
+            <div className="absolute inset-0 opacity-5 pointer-events-none"
+                style={{ backgroundImage: `url('https://www.transparenttextures.com/patterns/carbon-fibre.png')` }}>
             </div>
 
             <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-8"> {/* Padding py-16 dan py-8 ga tushirildi */}
                 <div className="grid md:grid-cols-2 gap-10">
-                    
+
                     {/* CHAP TOMON: LOGO VA TAVSIF */}
                     <div className="flex flex-col justify-between">
                         <div className="space-y-4">
-                            <img 
+                            <img
                                 src={light}
-                                alt="UzAuto Trailer" 
+                                alt="UzAuto Trailer"
                                 className="h-10 w-20"  /* Logo h-16 dan h-10 ga tushirildi */
                             />
                             <p className="text-blue-100/70 text-[13px] leading-relaxed text-justify max-w-md">
                                 {t.desc}
                             </p>
-                            
+
                             {/* Ijtimoiy tarmoqlar (Kichikroq) */}
                             <div className="flex gap-3 pt-2">
                                 {[Send, Instagram, Facebook, Youtube].map((Icon, i) => (
@@ -76,7 +76,7 @@ const Footer = ({ lang, setCurrentPage }) => {
                                 <p className="text-orange-400 font-black uppercase text-[9px] tracking-widest">{t.headOffice}</p>
                             </div>
                             <p className="text-lg font-black text-white">+998 71 202 32 23</p>
-                            <button 
+                            <button
                                 onClick={() => setCurrentPage('contacts')}
                                 className="bg-white/10 hover:bg-white/20 text-white px-4 py-1.5 rounded text-[10px] font-bold uppercase transition-all cursor-pointer border border-white/5"
                             >
@@ -91,7 +91,7 @@ const Footer = ({ lang, setCurrentPage }) => {
                                 <p className="text-orange-400 font-black uppercase text-[9px] tracking-widest">{t.production}</p>
                             </div>
                             <p className="text-lg font-black text-white">+998 66 240 00 10</p>
-                            <button 
+                            <button
                                 onClick={() => setCurrentPage('contacts')}
                                 className="bg-white/10 hover:bg-white/20 text-white px-4 py-1.5 rounded text-[10px] font-bold uppercase transition-all cursor-pointer border border-white/5"
                             >
@@ -115,8 +115,8 @@ const Footer = ({ lang, setCurrentPage }) => {
             </div>
 
             {/* Floating Call Button (Sal kichikroq) */}
-            <a href="tel:+998712023223" 
-               className="fixed bottom-6 right-6 w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all z-[100]">
+            <a href="tel:+998712023223"
+                className="fixed bottom-6 right-6 w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all z-[100]">
                 <Phone size={20} className="text-white" />
                 <span className="absolute inset-0 rounded-full bg-orange-400 animate-ping opacity-20"></span>
             </a>

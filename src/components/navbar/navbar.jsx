@@ -92,7 +92,7 @@ const Navbar = ({ lang, setLang, setCurrentPage, currentPage }) => {
                 <div className="flex items-center">
                     <img
                         onClick={() => { setCurrentPage('about'); setIsMenuOpen(false); }}
-                        src="./src/assets/light.png"
+                        src="/public/light.png"
                         alt="UzAuto Trailer"
                         className="h-10 md:h-14 w-auto object-contain cursor-pointer"
                     />
@@ -130,7 +130,7 @@ const Navbar = ({ lang, setLang, setCurrentPage, currentPage }) => {
                     </div>
 
                     {/* Hamburger Button (Faqat mobilda) */}
-                    <button 
+                    <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         className="md:hidden p-2 text-[#002C5B] hover:bg-gray-100 rounded-lg transition-colors"
                     >
