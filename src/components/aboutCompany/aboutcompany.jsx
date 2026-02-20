@@ -1,3 +1,4 @@
+import React from 'react';
 import {
     Factory, Truck, MapPin, ShieldCheck, Cpu, DraftingCompass, ChevronRight, Settings, Users, Award, Globe
 } from 'lucide-react';
@@ -75,30 +76,33 @@ const AboutCompany = ({ lang, setCurrentPage }) => {
     const t = content[lang];
 
     return (
-        <section className="bg-white font-sans animate-in fade-in duration-500">
-            {/* Breadcrumb Section */}
-            <div className="bg-gray-50 py-4 border-b border-gray-100">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                    <span className="text-[11px] font-bold text-gray-400 uppercase tracking-widest">{t.breadcrumb}</span>
+        <section className="bg-white font-sans animate-in fade-in duration-500 overflow-x-hidden">
+            {/* Breadcrumb Section - Mobilda kichikroq padding */}
+            <div className="bg-gray-50 py-3 md:py-4 border-b border-gray-100">
+                <div className="max-w-7xl mx-auto px-4 md:px-12">
+                    <span className="text-[9px] md:text-[11px] font-bold text-gray-400 uppercase tracking-widest">{t.breadcrumb}</span>
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
+            <div className="max-w-7xl mx-auto px-4 md:px-12 py-8 md:py-16">
                 {/* Header Section */}
-                <div className="mb-16">
-                    <h1 className="text-4xl lg:text-5xl font-black text-[#002C5B] mb-6 tracking-tight">{t.title}</h1>
-                    <div className="w-20 h-2 bg-orange-600 mb-10"></div>
-                    <div className="grid lg:grid-cols-3 gap-12">
+                <div className="mb-10 md:mb-16">
+                    <h1 className="text-2xl md:text-5xl font-black text-[#002C5B] uppercase mb-4 md:mb-6 tracking-tight leading-tight">
+                        {t.title}
+                    </h1>
+                    <div className="w-16 md:w-20 h-1.5 md:h-2 bg-orange-600 mb-8 md:mb-10"></div>
+                    
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
                         <div className="lg:col-span-2">
-                            <h2 className="text-xl font-extrabold text-[#002C5B] uppercase mb-4">{t.generalTitle}</h2>
-                            <p className="text-gray-600 leading-relaxed text-lg text-justify">{t.generalText}</p>
+                            <h2 className="text-lg md:text-xl font-extrabold text-[#002C5B] uppercase mb-4">{t.generalTitle}</h2>
+                            <p className="text-gray-600 leading-relaxed text-base md:text-lg text-justify">{t.generalText}</p>
                         </div>
-                        <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 h-fit">
-                            <h2 className="text-sm font-black text-[#002C5B] uppercase mb-6 tracking-widest border-b pb-4">{t.factoryTitle}</h2>
-                            <div className="space-y-4">
+                        <div className="bg-gray-50 p-6 md:p-8 rounded-2xl border border-gray-100 h-fit shadow-sm">
+                            <h2 className="text-xs md:text-sm font-black text-[#002C5B] uppercase mb-4 md:mb-6 tracking-widest border-b pb-4">{t.factoryTitle}</h2>
+                            <div className="space-y-3 md:space-y-4">
                                 {t.factoryDetails.map((item, idx) => (
-                                    <div key={idx} className="flex justify-between items-center">
-                                        <span className="text-gray-500 text-sm font-medium">{item.label}</span>
+                                    <div key={idx} className="flex justify-between items-center text-sm md:text-base">
+                                        <span className="text-gray-500 font-medium">{item.label}</span>
                                         <span className="text-[#002C5B] font-bold">{item.value}</span>
                                     </div>
                                 ))}
@@ -107,61 +111,63 @@ const AboutCompany = ({ lang, setCurrentPage }) => {
                     </div>
                 </div>
 
-                {/* Locations Section (BOSILGANDA KONTAKTLARGA O'TADI) */}
-
                 {/* Products Section */}
-                <div className="mb-20">
-                    <h2 className="text-2xl font-black text-[#002C5B] uppercase mb-8 text-center">{t.productsTitle}</h2>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="mb-12 md:mb-20">
+                    <h2 className="text-xl md:text-2xl font-black text-[#002C5B] uppercase mb-6 md:mb-8 text-center">{t.productsTitle}</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                         {t.productCategories.map((cat, idx) => (
-                            <div key={idx} className="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-600 flex items-start gap-4">
-                                <Truck className="text-blue-600 shrink-0" size={24} />
-                                <span className="text-[#002C5B] font-bold text-sm leading-snug">{cat}</span>
+                            <div key={idx} className="bg-blue-50 p-4 md:p-6 rounded-xl border-l-4 border-blue-600 flex items-center gap-3 md:gap-4 shadow-sm">
+                                <Truck className="text-blue-600 shrink-0" size={20} md:size={24} />
+                                <span className="text-[#002C5B] font-bold text-xs md:text-sm leading-snug">{cat}</span>
                             </div>
                         ))}
                     </div>
                 </div>
 
                 {/* Quality Factors Grid */}
-                <div className="mb-20">
-                    <h2 className="text-2xl font-black text-[#002C5B] uppercase mb-10 border-l-8 border-orange-500 pl-6">{t.qualityTitle}</h2>
-                    <div className="grid md:grid-cols-2 gap-8">
+                <div className="mb-12 md:mb-20">
+                    <h2 className="text-xl md:text-2xl font-black text-[#002C5B] uppercase mb-6 md:mb-10 border-l-4 md:border-l-8 border-orange-500 pl-4 md:pl-6">
+                        {t.qualityTitle}
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
                         {t.qualityFactors.map((factor, idx) => (
-                            <div key={idx} className="flex gap-6 p-6 rounded-2xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100">
-                                <div className="w-14 h-14 bg-white shadow-md rounded-xl flex items-center justify-center shrink-0">
-                                    <factor.icon className="text-orange-600" size={28} />
+                            <div key={idx} className="flex gap-4 md:gap-6 p-4 md:p-6 rounded-2xl bg-white border border-gray-100 hover:shadow-md transition-all">
+                                <div className="w-10 h-10 md:w-14 md:h-14 bg-gray-50 rounded-xl flex items-center justify-center shrink-0">
+                                    <factor.icon className="text-orange-600" size={20} md:size={28} />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-black text-[#002C5B] mb-2 uppercase">{idx + 1}. {factor.title}</h3>
-                                    <p className="text-gray-500 text-sm leading-relaxed font-medium">{factor.desc}</p>
+                                    <h3 className="text-sm md:text-lg font-black text-[#002C5B] mb-1 md:mb-2 uppercase">{idx + 1}. {factor.title}</h3>
+                                    <p className="text-gray-500 text-xs md:text-sm leading-relaxed font-medium">{factor.desc}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
 
-
-                {/* Locations Section */}
-                 <div
+                {/* Locations Section - BOSILGANDA KONTAKTLARGA O'TADI */}
+                <div
                     onClick={() => setCurrentPage('contacts')}
-                    className="grid lg:grid-cols-2 gap-12 bg-[#002C5B] rounded-3xl p-10 lg:p-16 text-white shadow-2xl cursor-pointer hover:bg-[#003875] transition-all group mb-20"
+                    className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-[#002C5B] rounded-2xl md:rounded-3xl p-6 md:p-12 lg:p-16 text-white shadow-2xl cursor-pointer hover:bg-[#003875] transition-all group mb-10 md:mb-20"
                 >
-                    <div>
-                        <h2 className="text-3xl font-black uppercase mb-8">{t.locations.title}</h2>
-                        <div className="space-y-6">
-                            <div className="flex gap-4">
-                                <MapPin className="text-orange-500 shrink-0" size={24} />
-                                <p className="text-blue-100 text-sm leading-relaxed">{t.locations.factory}</p>
+                    <div className="max-w-full overflow-hidden">
+                        <h2 className="text-xl md:text-3xl font-black uppercase mb-6 md:mb-8 leading-tight">
+                            {t.locations.title}
+                        </h2>
+                        <div className="space-y-4 md:space-y-6">
+                            <div className="flex gap-3 md:gap-4 items-start">
+                                <MapPin className="text-orange-500 shrink-0 mt-1" size={18} md:size={24} />
+                                <p className="text-blue-100 text-xs md:text-sm leading-relaxed">{t.locations.factory}</p>
                             </div>
-                            <div className="flex gap-4">
-                                <MapPin className="text-orange-500 shrink-0" size={24} />
-                                <p className="text-blue-100 text-sm leading-relaxed">{t.locations.office}</p>
+                            <div className="flex gap-3 md:gap-4 items-start">
+                                <MapPin className="text-orange-500 shrink-0 mt-1" size={18} md:size={24} />
+                                <p className="text-blue-100 text-xs md:text-sm leading-relaxed">{t.locations.office}</p>
                             </div>
                         </div>
-                        <div className="mt-8 flex items-center gap-2 text-orange-400 font-bold uppercase text-xs">
-                            {t.locations.btn} <ChevronRight size={16} />
+                        <div className="mt-6 md:mt-10 flex items-center gap-2 text-orange-400 font-bold uppercase text-[10px] md:text-xs">
+                            {t.locations.btn} <ChevronRight size={14} md:size={16} />
                         </div>
                     </div>
+                    {/* Zavod ikonkasi faqat katta ekranlarda ko'rinadi */}
                     <div className="hidden lg:flex items-center justify-center">
                         <Factory size={120} className="text-blue-800/50 opacity-50 group-hover:scale-110 transition-transform" />
                     </div>
