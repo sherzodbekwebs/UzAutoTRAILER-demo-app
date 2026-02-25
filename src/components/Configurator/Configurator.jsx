@@ -6,8 +6,8 @@ import { TRUCKS_DATA } from '../data/data';
 import bortImg from '../../assets/image1.png';
 import tyagachImg from '../../assets/image2.png';
 import samosvalImg from '../../assets/image3.png';
-import jacImg from '../../assets/image4.png'; 
-import shassiImg from '../../assets/image1.png'; 
+import jacImg from '../../assets/image4.png';
+import shassiImg from '../../assets/image1.png';
 import rama from '../../assets/rama.png';
 
 const Configurator = ({ lang, setCurrentPage, setSelectedTruckId }) => {
@@ -27,11 +27,11 @@ const Configurator = ({ lang, setCurrentPage, setSelectedTruckId }) => {
             formulaLabel: "Колесная формула",
             up: "НАВЕРХ",
             types: [
-                { id: "3", name: "БОРТОВЫЕ АВТОМОБИЛИ", img: bortImg },
                 { id: "1", name: "СЕДЕЛЬНЫЕ ТЯГАЧИ", img: tyagachImg },
                 { id: "2", name: "САМОСВАЛЫ", img: samosvalImg },
-                { id: "6", name: "МАЛОТОННАЖНЫЕ (JAC)", img: jacImg },
-                { id: "7", name: "ШАССИ КАМАЗ", img: shassiImg }
+                { id: "3", name: "БОРТОВЫЕ АВТОМОБИЛИ", img: bortImg },
+                { id: "6", name: "Мини грузовики", img: jacImg },
+                { id: "7", name: "ШАССИ КАМАЗ", img: shassiImg },
             ],
         },
         uz: {
@@ -45,10 +45,10 @@ const Configurator = ({ lang, setCurrentPage, setSelectedTruckId }) => {
             formulaLabel: "G'ildirak formulasi",
             up: "TEPAGA",
             types: [
-                { id: "3", name: "BORTLI AVTOMOBILLAR", img: bortImg },
                 { id: "1", name: "SEDELLI TYAGACHLAR", img: tyagachImg },
                 { id: "2", name: "SAMOSVALLAR", img: samosvalImg },
-                { id: "6", name: "YENGIL YUK MASHINALARI (JAC)", img: jacImg },
+                { id: "3", name: "BORTLI AVTOMOBILLAR", img: bortImg },
+                { id: "6", name: "Мини грузовики", img: jacImg },
                 { id: "7", name: "KAMAZ SHASSILARI", img: shassiImg }
             ],
         }
@@ -88,8 +88,8 @@ const Configurator = ({ lang, setCurrentPage, setSelectedTruckId }) => {
                         <h1 className="text-2xl md:text-3xl font-black uppercase mt-1 tracking-tight text-[#002C5B]">{t.title}</h1>
                     </div>
 
-                    <button 
-                        onClick={() => setCurrentPage('production')} 
+                    <button
+                        onClick={() => setCurrentPage('production')}
                         className="group flex items-center gap-3 bg-[#002C5B] hover:bg-[#e67e22] text-white px-5 md:px-6 py-2 md:py-2.5 rounded-full shadow-lg transition-all duration-300 active:scale-95 cursor-pointer w-full sm:w-auto justify-center"
                     >
                         <div className="bg-white/20 rounded-full p-1 group-hover:bg-white/30 transition-colors">
@@ -147,7 +147,7 @@ const Configurator = ({ lang, setCurrentPage, setSelectedTruckId }) => {
                     {/* --- STEP 2 --- */}
                     <div className={`flex gap-4 md:gap-10 relative transition-all duration-500 ease-in-out overflow-hidden
                         ${selectedCategory ? 'max-h-[2000px] opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>
-                        
+
                         <div className="flex flex-col items-center relative">
                             <div className={`w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center z-10 transition-all duration-500
                                 ${selectedFormula ? 'bg-[#9ba4b0] text-white' : 'bg-[#e67e22] text-white shadow-lg'}`}>
@@ -198,7 +198,7 @@ const Configurator = ({ lang, setCurrentPage, setSelectedTruckId }) => {
                                         <div className="space-y-0 border-t border-gray-100">
                                             {finalResults.map(truck => (
                                                 <div key={truck.id} onClick={() => handleTruckClick(truck.id)}
-                                                     className="flex items-center gap-4 md:gap-6 py-3 border-b border-gray-100 hover:bg-blue-50/5 transition-colors cursor-pointer group">
+                                                    className="flex items-center gap-4 md:gap-6 py-3 border-b border-gray-100 hover:bg-blue-50/5 transition-colors cursor-pointer group">
                                                     <div className="w-16 h-10 md:w-20 md:h-12 flex items-center justify-center flex-shrink-0">
                                                         <img src={rama} alt="truck" className="max-h-full max-w-full object-contain mix-blend-multiply" />
                                                     </div>
