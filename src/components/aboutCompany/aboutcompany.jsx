@@ -1,13 +1,38 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import {
     Factory, Truck, MapPin, ShieldCheck, Cpu, DraftingCompass, ChevronRight, Settings, Users, Award, Globe
 } from 'lucide-react';
+import bg1 from '../../assets/bg1.png';
+import bg2 from '../../assets/bg2.png';
+import bg3 from '../../assets/bg3.png';
 
 const AboutCompany = ({ lang, setCurrentPage }) => {
+    // --- Slider uchun rasmlar (O'zingizni rasmlaringizga almashtirishingiz mumkin) ---
+    const sliderImages = [
+        bg1,
+        bg2,
+        bg3
+    ];
+
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % sliderImages.length);
+        }, 5000); // Har 5 soniyada almashadi
+        return () => clearInterval(interval);
+    }, [sliderImages.length]);
+
     const content = {
         ru: {
+            heroTitle1: "Лучшее",
+            heroTitle2: "Вождение.",
+            heroTitle3: "Лучшая ",
+            heroTitle4: "Жизнь.",
+            heroSubtitle: "Откройте мир инноваций и комфорта. UzAuto TRAILER предлагает надежную технику, созданную для вашего успеха.",
+            heroBtn: "Выбрать технику",
             breadcrumb: "Главная / О компании / Общая информация",
-            title: "ООО «UzAuto TRAILER»",
+            title: "«UzAuto TRAILER»",
             generalTitle: "Общая информация",
             generalText: "4 июня 2012 году Акционерной компанией «Узавтосаноат» учреждено предприятие «UzAuto TRAILER» по выпуску прицепной техники и различных видов надстроек на грузовые шасси. Проектная мощность завода рассчитана на 3000 единиц: 2000 единиц – полуприцепов и 1000 единиц – надстроек на грузовые шасси. Предприятие нацелено на рынок Узбекистана и стран Центральной Азии: Казахстан, Азербайджан, Афганистан, Туркменистан и Кыргызстан.",
             factoryTitle: "Завод в цифрах",
@@ -39,6 +64,12 @@ const AboutCompany = ({ lang, setCurrentPage }) => {
             ]
         },
         uz: {
+            heroTitle1: "Yaxshiroq ",
+            heroTitle2: "Haydash.",
+            heroTitle3: "Yaxshiroq ",
+            heroTitle4: "Hayot.",
+            heroSubtitle: "Innovatsiyalar va qulaylik dunyosini kashf eting. UzAuto TRAILER muvaffaqiyatingiz uchun yaratilgan ishonchli texnikalarni taklif etadi.",
+            heroBtn: "Texnika tanlash",
             breadcrumb: "Bosh sahifa / Kompaniya haqida / Umumiy ma'lumot",
             title: "«UzAuto TRAILER» MCHJ",
             generalTitle: "Umumiy ma'lumot",
@@ -67,7 +98,7 @@ const AboutCompany = ({ lang, setCurrentPage }) => {
             qualityFactors: [
                 { title: "Sifat menejmenti", desc: "ISO 9001:2015 sertifikati, materiallar va payvandlash choklarining qat'iy nazorati.", icon: ShieldCheck },
                 { title: "Jahon brendlari butlovchi qismlari", desc: "SAF-Holland o'qlari, Wabco tormoz tizimlari, Hardox po'lati va Michelin shinalari.", icon: Settings },
-                { title: "Zamonaviy uskunalar", desc: "Messer (Germaniya) plazmali kesish, Ermaksan (Turkiya) lazerlari, Fronius (Avstriya) payvandlash tizimlari.", icon: Cpu },
+                { title: "Zamonaviy uskunalar", desc: "Messer (Germaniya) plazmali kesish, Ermaksan (Turya) lazerlari, Fronius (Avstriya) payvandlash tizimlari.", icon: Cpu },
                 { title: "Konstruktorlik byurosi", desc: "Modernizatsiya va loyihalash uchun yuqori malakali mutaxassislardan iborat o'z byuromiz.", icon: DraftingCompass }
             ]
         }
@@ -77,6 +108,55 @@ const AboutCompany = ({ lang, setCurrentPage }) => {
 
     return (
         <section className="bg-white font-sans animate-in fade-in duration-500 overflow-x-hidden">
+
+            {/* --- NEW HERO SLIDER SECTION (JAC MOTORS STYLE) --- */}
+            <div className="relative w-full h-[500px] md:h-[650px] overflow-hidden">
+                {/* Background Images with Fade effect */}
+                {sliderImages.map((img, index) => (
+                    <div
+                        key={index}
+                        className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
+                        style={{
+                            backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.95) 20%, rgba(255,255,255,0.1) 80%), url(${img})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center'
+                        }}
+                    />
+                ))}
+
+                {/* Text Content */}
+                <div className="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-center px-4 md:px-12">
+                    <div className="max-w-2xl">
+                        <h1 className="text-5xl md:text-7xl font-black leading-tight mb-4">
+                            <span className="text-[#FF3B30]">{t.heroTitle1} </span>
+                            <span className="text-[#002C5B]">{t.heroTitle2}</span>
+                            <br />
+                            <span className="text-[#FF3B30]">{t.heroTitle3} </span>
+                            <span className="text-[#002C5B]">{t.heroTitle4}</span>
+                        </h1>
+                        <p className="text-gray-600 text-lg md:text-xl font-medium mb-10 max-w-lg">
+                            {t.heroSubtitle}
+                        </p>
+                        <button
+                            onClick={() => setCurrentPage('catalog')}
+                            className="bg-gradient-to-r from-red-600 to-orange-500 text-white font-bold py-4 px-10 rounded-full flex items-center gap-3 shadow-xl hover:scale-105 transition-transform"
+                        >
+                            {t.heroBtn} <ChevronRight size={20} />
+                        </button>
+                    </div>
+                </div>
+
+                {/* Slider Indicators (Dots) */}
+                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+                    {sliderImages.map((_, i) => (
+                        <div
+                            key={i}
+                            className={`h-1.5 rounded-full transition-all duration-300 ${i === currentSlide ? 'w-12 bg-red-600' : 'w-6 bg-gray-300'}`}
+                        />
+                    ))}
+                </div>
+            </div>
+
             {/* Breadcrumb Section - Mobilda kichikroq padding */}
             <div className="bg-gray-50 py-3 md:py-4 border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 md:px-12">
@@ -91,7 +171,7 @@ const AboutCompany = ({ lang, setCurrentPage }) => {
                         {t.title}
                     </h1>
                     <div className="w-16 md:w-20 h-1.5 md:h-2 bg-orange-600 mb-8 md:mb-10"></div>
-                    
+
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
                         <div className="lg:col-span-2">
                             <h2 className="text-lg md:text-xl font-extrabold text-[#002C5B] uppercase mb-4">{t.generalTitle}</h2>
